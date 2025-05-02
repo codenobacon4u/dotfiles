@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dir = $(dirname "$0")
+dir=$(cd "$(dirname "$BASH_SOURCE")"; cd -P "$(dirname "$(readlink "$BASH_SOURCE" || echo .)")"; pwd)
 
 echo "Applying bash settings"
 cp $dir/../bash/bashrc ~/.bashrc
