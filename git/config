@@ -1,0 +1,31 @@
+[alias]
+	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	s = status -s
+
+[core]
+	editor = nvim
+	whitespace = space-before-tab,trailing-space
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true
+
+[push]
+	default = matching
+
+[fetch]
+	prune = true
+
+[rebase]
+	autoStash = true
+
+[user]
+	name = codenobacon4u
+	email = kralcmit@gmail.com
+
+[url "git@github.com:"]
+	pushInsteadOf = "https://github.com"
