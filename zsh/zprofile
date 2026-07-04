@@ -1,0 +1,27 @@
+[[ -f $HOME/.profile ]] && source $HOME/.profile
+
+# Path to a file that stores agent environment details
+SSH_ENV="$HOME/.ssh/agent-environment"
+
+function start_agent {
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    ssh-add ~/.ssh/id_ed25519 2>/dev/null
+    ssh-add ~/.ssh/homelab_ed25519 2>/dev/null
+
+}
+
+# Source SSH settings if they exist
+if [ -f "${SSH_ENV}" ]; then
+    . "${SSH_ENV}" > /dev/null
+    # Check if the process is still running
+    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent > /dev/null || {
+        start_agent
+    }
+else
+    start_agent
+fi
+
+path+=$HOME/.local/bin
+

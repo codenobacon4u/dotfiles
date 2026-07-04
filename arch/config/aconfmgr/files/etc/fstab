@@ -1,0 +1,22 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/nvme1n1p2
+UUID=7ad92234-8677-4622-b023-8571b8349bc5	/         	ext4      	rw,relatime	0 1
+
+# /dev/nvme1n1p1
+UUID=25CB-335C      	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# /dev/nvme1n1p3
+UUID=93ac2807-bc1c-4ecb-a543-23e020ba9216	/home     	ext4      	rw,relatime	0 2
+
+# /dev/sda2 LABEL=Stuff
+UUID=8EC2E9D4C2E9C117   /run/media/tim/Stuff    ntfs3           rw,nosuid,nodev,relatime,windows_names,uid=1000,gid=1000,iocharset=utf8       0 0
+
+# /dev/sdb2 LABEL=Games
+UUID=C84C3DC34C3DAD56   /run/media/tim/Games    ntfs3           rw,user,exec,umask=000,windows_names,uid=1000,gid=1000,iocharset=utf8	0 0
+
+10.1.151.152:/mnt/data/dev /mnt/shares/dev nfs x-systemd.automount,x-systemd.device-timeout=10,timeo=14,x-systemd.idle-timeout=1min 0 0
+
+10.1.151.152:/mnt/data/shared /mnt/shares/public nfs x-systemd.automount,x-systemd.device-timeout=10,timeo=14,x-systemd.idle-timeout=1min 0 0

@@ -1,0 +1,17 @@
+[connection]
+id=Home
+uuid=a4b0ca24-446f-37a7-8e23-575e39a3534f
+type=ethernet
+autoconnect-priority=-100
+
+[ethernet]
+mac-address=34:5A:60:50:FD:C9
+
+[ipv4]
+method=auto
+
+[ipv6]
+addr-gen-mode=stable-privacy
+method=auto
+
+[proxy]

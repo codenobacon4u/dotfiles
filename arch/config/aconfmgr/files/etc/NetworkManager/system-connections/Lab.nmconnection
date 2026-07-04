@@ -1,0 +1,17 @@
+[connection]
+id=Lab
+uuid=56e7ded9-3c16-4327-9eb6-884b4b6112e9
+type=ethernet
+
+[ethernet]
+mac-address=02:76:C6:00:C6:23
+
+[ipv4]
+address1=10.1.151.153/24
+method=manual
+
+[ipv6]
+addr-gen-mode=stable-privacy
+method=link-local
+
+[proxy]

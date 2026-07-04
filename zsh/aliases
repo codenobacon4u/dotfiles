@@ -6,3 +6,5 @@ alias la='eza -AF --icons --color=always --group-directories-first'
 alias l='eza -F --icons --color=always --group-directories-first'
 alias l.='eza -a | egrep "^\."'
 
+alias 3ds='cc3dsfs'
+
