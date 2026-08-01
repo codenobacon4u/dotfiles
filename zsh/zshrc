@@ -21,6 +21,20 @@ setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
 setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
 setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
 
+preexec() {
+    # Get the first word of the command
+    local cmd_name="${2[(w)1]}"
+    # Resolve aliases to find the real binary name
+    local real_cmd="${aliases[$cmd_name]:-$cmd_name}"
+  
+    # Print directory and the base name of the process
+    print -Pn "\e]0;%~ : ${(M)real_cmd##*[^/]}\a"
+}
+
+precmd() {
+    print -Pn "\e]0;%~ : zsh\a"
+}
+
 # Completions
 source $ZDOTDIR/completion.zsh
 
