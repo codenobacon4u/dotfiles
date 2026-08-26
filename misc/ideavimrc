@@ -44,6 +44,7 @@ inoremap <C-v> <C-r>+
 "vnoremap <C-v> "+p
 
 nnoremap <leader>s :action SearchEverywhere<CR>
+nnoremap <leader>f :action ReformatCode<CR>
 
 nnoremap <C-F> :action FindInPath<CR>
 inoremap <C-F> :action FindInPath<CR>
